@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StreamScale Player</title>
+  <script src='https://cdn.jsdelivr.net/npm/hls.js@latest'></script>
+</head>
+<body style='background: #111; display: flex; justify-content: center; align-items: center; height: 100vh;'>
+  
+  <video id='video' controls style='width: 80%; max-width: 800px;'></video>
+
+  <script>
+    const video = document.getElementById('video');
+    // Pointing to MinIO
+    
+    const videoSrc = 'http://localhost:9000/stream-bucket/videos/my-video/master.m3u8';
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+        video.play();
+      });
+    }
+  </script>
+</body>
+</html>
