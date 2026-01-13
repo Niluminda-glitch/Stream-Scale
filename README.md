@@ -29,7 +29,7 @@ Stream-Scale/
 │   ├── index.ts       # Express API Entry point
 │   ├── worker.ts      # BullMQ Worker (FFmpeg Logic)
 │   ├── queue.ts       # Shared Queue Config
-├── stream-ui/         # Next.js Frontend Application
+├── frontend/          # Next.js Frontend Application
 ├── docker-compose.yml # Infrastructure (Redis + MinIO)
 ├── package.json       # Backend Dependencies
 └── ...
